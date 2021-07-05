@@ -21,12 +21,12 @@ $app->get('/contacts', function (Request $request, Response $response) {
 
     // custom json response
     $response->withStatus(200);
-    $response->withHeader('Content-Type', 'application/json');
+    $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     return $response->withJson($contacts);
 
   } catch (PDOException $e) {
     $response->withStatus(500);
-    $response->withHeader('Content-Type', 'application/json');
+    $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     $error['err'] = $e->getMessage();
     return $response->withJson($error);
   }
@@ -40,12 +40,12 @@ $app->get('/appointments', function (Request $request, Response $response) {
   
       // custom json response
       $response->withStatus(200);
-      $response->withHeader('Content-Type', 'application/json');
+      $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
       return $response->withJson($appointment);
   
     } catch (PDOException $e) {
       $response->withStatus(500);
-      $response->withHeader('Content-Type', 'application/json');
+      $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
       $error['err'] = $e->getMessage();
       return $response->withJson($error);
     }
@@ -68,13 +68,13 @@ $app->post('/appointments', function (Request $request, Response $response) {
 
     // custom json response
     $response->withStatus(200);
-    $response->withHeader('Content-Type', 'application/json');
+    $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     $message['ok'] = "appointment added successfully";
     return $response->withJson($message);
 
   } catch (PDOException $e) {
     $response->withStatus(500);
-    $response->withHeader('Content-Type', 'application/json');
+    $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     $error['err'] = $e->getMessage(); 
     return $response->withJson($error);
   }
@@ -94,13 +94,14 @@ $app->post('/contacts', function (Request $request, Response $response) {
   
       // custom json response
       $response->withStatus(200);
-      $response->withHeader('Content-Type', 'application/json');
+      $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+
       $message['ok'] = "Contact added successfully";
       return $response->withJson($message);
   
     } catch (PDOException $e) {
       $response->withStatus(500);
-      $response->withHeader('Content-Type', 'application/json');
+      $response->withHeader('Content-Type', 'application/json','Access-Control-Allow-Origin: *);','Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token','Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
       $error['err'] = $e->getMessage(); 
       return $response->withJson($error);
     }
